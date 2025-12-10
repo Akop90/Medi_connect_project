@@ -1,0 +1,61 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Adding Doctor</h1>
+        <form method="post">
+            
+
+            <table class="table table-bordered">
+                
+                <tr>
+                    <td>Doctor ID</td>
+                    <td><input type="text" name="doctor_id" class="form-control" value="{{ prefill.doctor_id|default:'' }}"></td>
+                </tr>
+
+                <tr>
+                    <td>Doctor Name</td>
+                    <td><input type="text" name="doctor_name" class="form-control" value="{{ prefill.doctor_name|default:'' }}"></td>
+                </tr>
+
+                <tr>
+                    <td>Email Address</td>
+                    <td><input type="email" name="doctor_email" class="form-control" value="{{ prefill.doctor_email|default:'' }}"></td>
+                </tr>
+
+                <tr>
+                    <td>Password</td>
+                    <td><input type="text" name="doctor_password" class="form-control" value="{{ prefill.doctor_password|default:'' }}"></td>
+                </tr>
+
+                <tr>
+                    <td>Doctor Phone No</td>
+                    <td><input type="text" name="doctor_phone" class="form-control" value="{{ prefill.doctor_phone|default:'' }}"></td>
+                </tr>
+
+                <tr>
+                    <td>Speciality</td>
+                    <td>
+                        <select name="doctors_speciality" class="form-control">
+                            <option value="">Select Speciality</option>
+                            {% for spec in specialities %}
+                                <option value="{{ spec }}" {% if prefill.doctors_speciality == spec %}selected{% endif %}>{{ spec }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

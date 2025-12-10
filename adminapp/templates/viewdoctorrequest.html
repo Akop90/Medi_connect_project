@@ -1,0 +1,47 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">View Doctor Registration Request</h1>
+        {% if dct %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Doctor Id</th>
+                    <th>Doctor Name</th>
+                    <th>Doctor Specialty</th>
+                    <th>Doctor Email</th>
+                    <th>Doctor Password</th>
+                    <th>Doctor Contact</th>
+                    <th>Registered Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doct in dct %}
+                <tr>
+                    <td>{{ doct.doctor_id }}</td>
+                    <td>{{ doct.doctor_name }}</td>
+                    <td>{{ doct.doctors_speciality }}</td>
+                    <td>{{ doct.doctor_email }}</td>
+                    <td>{{ doct.doctor_password }}</td>
+                    <td>{{ doct.doctor_phone }}</td>
+                    <td>{{ doct.created_at }}</td>
+                    <td>
+                        <a href="{% url 'adminapp:acceptdoctorrequest' doct.id %}" class="btn btn-sm btn-success mb-2">Accept</a>
+                        <a href="{% url 'adminapp:deletedoctorrequest' doct.id %}" class="btn btn-sm btn-danger">Reject</a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-info">No Doctor registration requests found.</div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

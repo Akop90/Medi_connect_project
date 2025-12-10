@@ -1,0 +1,27 @@
+<!-- filepath: adminapp/templates/adminapp/view_accountants.html -->
+{% extends 'adminbase.html' %}
+{% block admin %}
+<h3>Active Accountants</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for acc in accountants %}
+        <tr>
+            <td>{{ acc.name }}</td>
+            <td>{{ acc.email }}</td>
+            <td>{{ acc.phone }}</td>
+            <td>{{ acc.address }}</td>
+            <td>
+                <a href="{% url 'adminapp:delete_accountant' acc.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No accountants.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

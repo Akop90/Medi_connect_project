@@ -1,0 +1,28 @@
+<!-- filepath: adminapp/templates/adminapp/view_accountant_requests.html -->
+{% extends 'adminbase.html' %}
+{% block admin %}
+<h3>Accountant Registration Requests</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for req in requests %}
+        <tr>
+            <td>{{ req.name }}</td>
+            <td>{{ req.email }}</td>
+            <td>{{ req.phone }}</td>
+            <td>{{ req.address }}</td>
+            <td>
+                <a href="{% url 'adminapp:approve_accountant' req.id %}" class="btn btn-success btn-sm">Approve</a>
+                <a href="{% url 'adminapp:decline_accountant' req.id %}" class="btn btn-danger btn-sm">Decline</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No requests.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

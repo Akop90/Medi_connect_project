@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row" style="margin: 0; display: flex; justify-content: center;">
+    <div class="col-sm-10" style="padding: 15px; width: 100%; max-width: 800px; box-sizing: border-box;">
+
+        <div class="container" style="width: 100%; padding: 15px; box-sizing: border-box; margin-top: 100px;">
+            <div class="registration-container" style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h2 class="form-title" style="text-align: center; margin-bottom: 20px;">Hospital Staff Registration</h2>
+
+                <!-- Messages Display -->
+                
+
+                <form method="POST" style="width: 100%;" >
+                    {% csrf_token %}
+
+                    <!-- Staff Name -->
+                    <div class="mb-3" style="margin-bottom: 15px;">
+                        <label for="staff_name" class="form-label" style="display: block; margin-bottom: 5px;">Full Name</label>
+                        <input type="text" class="form-control" id="staff_name" name="staff_name" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                    </div>
+
+                    <!-- Staff Email -->
+                    <div class="mb-3" style="margin-bottom: 15px;">
+                        <label for="staff_email" class="form-label" style="display: block; margin-bottom: 5px;">Email Address</label>
+                        <input type="email" class="form-control" id="staff_email" name="staff_email" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                    </div>
+
+                    <!-- Password Fields -->
+                    <div class="mb-3" style="margin-bottom: 15px;">
+                        <label for="staff_password" class="form-label" style="display: block; margin-bottom: 5px;">Password</label>
+                        <input type="password" class="form-control" id="staff_password" name="staff_password" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                        <div class="password-help" style="font-size: 12px; color: #6c757d; margin-top: 5px;">Choose a strong password (at least 8 characters)</div>
+                    </div>
+
+                    <!-- Password Confirmation -->
+                    <div class="mb-3" style="margin-bottom: 15px;">
+                        <label for="confirm_password" class="form-label" style="display: block; margin-bottom: 5px;">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                    </div>
+
+                    <!-- Staff Phone -->
+                    <div class="mb-3" style="margin-bottom: 15px;">
+                        <label for="staff_phone" class="form-label" style="display: block; margin-bottom: 5px;">Phone Number</label>
+                        <input type="tel" class="form-control" id="staff_phone" name="staff_phone" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                    </div>
+
+                    <!-- Staff Address -->
+                    <div class="mb-3" style="margin-bottom: 15px;">
+                        <label for="staff_address" class="form-label" style="display: block; margin-bottom: 5px;">Address</label>
+                        <textarea class="form-control" id="staff_address" name="staff_address" rows="3" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit" style="width: 100%; padding: 10px; font-size: 16px;">Register</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- JavaScript for password confirmation validation -->
+        <script>
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const password = document.getElementById('staff_password').value;
+                const confirmPassword = document.getElementById('confirm_password').value;
+
+                if (password !== confirmPassword) {
+                    e.preventDefault();
+                    alert('Passwords do not match!');
+                    document.getElementById('confirm_password').focus();
+                }
+
+                if (password.length < 8) {
+                    e.preventDefault();
+                    alert('Password must be at least 8 characters long!');
+                    document.getElementById('staff_password').focus();
+                }
+            });
+        </script>
+
+    </div>
+</div>
+{% endblock %}

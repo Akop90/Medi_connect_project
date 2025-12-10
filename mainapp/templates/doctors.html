@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Hero Section -->
+<section class="doctors-hero-section">
+    <div class="doctors-hero-overlay"></div>
+    <div class="doctors-hero-content">
+        <h1 class="doctors-hero-title">Our <span>Expert Doctors</span></h1>
+        <p class="doctors-hero-subtitle">Meet our team of highly qualified medical professionals</p>
+    </div>
+</section>
+
+<!-- Doctors Intro Section -->
+<section class="doctors-intro-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="doctors-text-content">
+                    <h2>Experienced <span>Medical Team</span></h2>
+                    <p>At MediConnect Healthcare system, we have assembled a team of highly skilled doctors across various specialties who are committed to providing exceptional patient care with compassion and expertise.</p>
+
+                    <div class="doctors-features">
+                        <div class="doctors-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Highly qualified specialists</span>
+                        </div>
+                        <div class="doctors-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Advanced medical expertise</span>
+                        </div>
+                        <div class="doctors-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Patient-centered approach</span>
+                        </div>
+                        <div class="doctors-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Continuous medical education</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="doctors-image-wrapper">
+                    <img src="{% static 'media/team.jpg' %}" alt="Doctors Team" class="doctors-main-image">
+                    <div class="doctors-image-highlight"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Specialties Section -->
+<section class="specialties-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Medical <span>Specialties</span></h2>
+            <p>Comprehensive care across all major medical disciplines</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h4>Cardiology</h4>
+                    <p>Heart care specialists providing advanced cardiac treatments</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Neurology</h4>
+                    <p>Expert care for brain and nervous system disorders</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h4>Orthopedics</h4>
+                    <p>Specialized care for bones, joints and musculoskeletal system</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h4>Pediatrics</h4>
+                    <p>Compassionate care for infants, children and adolescents</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h4>Pulmonology</h4>
+                    <p>Expertise in respiratory diseases and lung conditions</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h4>General Surgery</h4>
+                    <p>Comprehensive surgical care for various conditions</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Ophthalmology</h4>
+                    <p>Specialized eye care and vision correction</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h4>Dentistry</h4>
+                    <p>Complete oral health and dental care services</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Doctors Grid Section -->
+<section class="doctors-grid-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our <span>Doctors</span></h2>
+            <p>Meet our team of experienced medical professionals</p>
+        </div>
+        
+        <div class="row">
+            <!-- Doctor 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/manoj.jpg' %}" alt="Dr. Manoj Kumar Singh">
+                    </div>
+                    <h4>Dr. Manoj Kumar Singh</h4>
+                    <p class="specialty">Orthopedic</p>
+                    <p class="qualification">M.B.B.S MS(ORTHO)</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 15 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctor 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/surabhi.jpg' %}" alt="Dr. Surabhi Verma">
+                    </div>
+                    <h4>Dr. Surabhi Verma</h4>
+                    <p class="specialty">Pediatrician</p>
+                    <p class="qualification">MBBS DCH</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 11 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctor 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/M.jpg' %}" alt="Dr. Rahul Pawar">
+                    </div>
+                    <h4>Dr. Rahul Pawar</h4>
+                    <p class="specialty">Orthopedic Surgeon</p>
+                    <p class="qualification">M.B.B.S, MS, DNB(ORTHO)</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 18 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctor 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/M.jpg' %}" alt="Dr. Santosh Gupta">
+                    </div>
+                    <h4>Dr. Santosh Gupta</h4>
+                    <p class="specialty">Orthopedic</p>
+                    <p class="qualification">M.B.B.S MS(ORTHO)</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 10 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctor 5 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/M.jpg' %}" alt="Dr. Manoj Johari">
+                    </div>
+                    <h4>Dr. Manoj Johari</h4>
+                    <p class="specialty"> Anesthesiology Specilist</p>
+                    <p class="qualification">M.B.B.S, MD(Anesthesiology)</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 14 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctor 6 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/M.jpg' %}" alt="Dr. Praveen Thakur">
+                    </div>
+                    <h4>Dr. Praveen Thakur</h4>
+                    <p class="specialty">Anesthesiology</p>
+                    <p class="qualification">M.B.B.S, MD(Anesthesiology)</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 9 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctor 7 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/M.jpg' %}" alt="Dr. Rakesh Singh">
+                    </div>
+                    <h4>Dr. Rakesh Singh</h4>
+                    <p class="specialty">Cardiologist</p>
+                    <p class="qualification">D.CARD</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 10 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctor 8 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="{% static 'media/F.jpg' %}" alt="DR. SABA ANJUM">
+                    </div>
+                    <h4>DR. SABA ANJUM</h4>
+                    <p class="specialty">Anesthesiology</p>
+                    <p class="qualification">MBBS, MD (ANAESTHEIA)</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-star"></i> 8 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="doctors-cta-section">
+    <div class="container">
+        <div class="doctors-cta-content">
+            <h2>Book an Appointment</h2>
+            <p>Schedule a consultation with our expert doctors today</p>
+            <a href="{% url 'mkap' %}" class="btn btn-primary">Book Now</a>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

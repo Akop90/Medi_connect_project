@@ -1,0 +1,88 @@
+{% extends 'doctorbase.html' %}
+{% load static %}
+{% block doctor %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="text-center mb-4">All Appointments</h2>
+
+        {% if appointments %}
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead style="background-color: #0d6efd; color: white;">
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Symptoms</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Doctor</th>
+                        <th>Speciality</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for app in appointments %}
+                        <tr>
+                            <td>{{ app.name }}</td>
+                            <td>{{ app.email }}</td>
+                            <td>{{ app.contact }}</td>
+                            <td>{{ app.symptoms }}</td>
+                            <td>{{ app.appointment_date }}</td>
+                            <td>{{ app.appointment_time }}</td>
+                            <td>{{ app.doctor.doctor_name }}</td>
+                            <td>{{ app.doctor_speciality }}</td>
+                            <td>
+                                {% if app.is_completed %}
+                                    <span class="badge bg-success">Approved</span>
+                                {% else %}
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if not app.is_completed %}
+                                    <a href="{% url 'doctorapp:markaproove' app.id %}" class="btn btn-sm btn-success mb-2">Approve</a>
+                                    <!-- Reschedule Button triggers modal -->
+                                    <button class="btn btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#rescheduleModal{{ app.id }}">Reschedule</button>
+                                {% endif %}
+                                <a href="{% url 'doctorapp:deleteappointment' app.id %}" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        <!-- Modal for Rescheduling -->
+                        <div class="modal fade" id="rescheduleModal{{ app.id }}" tabindex="-1" aria-labelledby="rescheduleModalLabel{{ app.id }}" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <form method="post" action="{% url 'doctorapp:reschedule_appointment' app.id %}">
+                              {% csrf_token %}
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="rescheduleModalLabel{{ app.id }}">Reschedule Appointment</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="mb-3">
+                                    <label for="date{{ app.id }}" class="form-label">New Date</label>
+                                    <input type="date" class="form-control" id="date{{ app.id }}" name="appointment_date" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="time{{ app.id }}" class="form-label">New Time</label>
+                                    <input type="time" class="form-control" id="time{{ app.id }}" name="appointment_time" required>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="submit" class="btn btn-primary">Reschedule & Approve</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-info text-center">No appointments found.</div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

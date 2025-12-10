@@ -1,0 +1,43 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">View Staff Registration Request</h1>
+        {% if stf %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Staff Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for staff in stf %}
+                <tr>
+                    <td>{{ staff.staff_name }}</td>
+                    <td>{{ staff.staff_email }}</td>
+                    <td>{{ staff.staff_password }}</td>
+                    <td>{{ staff.staff_phone }}</td>
+                    <td>{{ staff.staff_address }}</td>
+                    <td>
+                        <a href="{% url 'adminapp:acceptstaffrequest' staff.id %}" class="btn btn-sm btn-success">Accept</a>
+                        <a href="{% url 'adminapp:deletestaffrequest' staff.id %}" class="btn btn-sm btn-danger">Delete</a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-info">No staff registration requests found.</div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "accountantapp/accountant_dashboard.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<style>
+    .summary-card {
+        border-radius: 1.5rem;
+        background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+        color: #fff;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+        margin-bottom: 2rem;
+        padding: 2rem 2rem 1rem 2rem;
+    }
+    .summary-card .icon {
+        font-size: 2.5rem;
+        margin-right: 1rem;
+        vertical-align: middle;
+    }
+    .table thead th {
+        background: #f5f7fa;
+        color: #1976d2;
+        font-weight: 700;
+        border: none;
+    }
+    .badge-method {
+        font-size: 0.95rem;
+        border-radius: 1rem;
+        padding: 0.4em 1em;
+    }
+    .badge-cash { background: #ffe082; color: #795548; }
+    .badge-card { background: #b3e5fc; color: #0277bd; }
+    .badge-upi { background: #c8e6c9; color: #388e3c; }
+    .badge-netbanking { background: #d1c4e9; color: #512da8; }
+</style>
+
+<div class="summary-card d-flex align-items-center">
+    <span class="icon"><i class="fas fa-wallet"></i></span>
+    <div>
+        <div class="fs-5 fw-bold">
+            Total Payment Received: <span class="ms-2">&#8377;{{ total_received }}</span>
+        </div>
+        <div class="fs-6">
+            {% if payments|length == 1 and payments.0.bill %}
+                Payment for <b>{{ payments.0.bill.patient_name }}</b>
+            {% else %}
+                Recent payment activity is shown below.
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="card shadow payment-card border-0">
+    <div class="card-header payment-header text-dark text-center">
+        <h4 class="mb-0">
+            <i class="fas fa-credit-card me-2 animated-icon"></i>
+            Payment History
+        </h4>
+    </div>
+    <div class="card-body p-4">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Bill Amount</th>
+                    <th>Paid</th>
+                    <th>Method</th>
+                    <th>Date</th>
+                    <th>Edit</th> <!-- Added Edit column -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment in payments %}
+                <tr>
+                    <td>
+                        <i class="fas fa-user-circle text-secondary me-1"></i>
+                        {{ payment.bill.patient_name }}
+                    </td>
+                    <td>&#8377;{{ payment.bill.amount }}</td>
+                    <td>
+                        <span class="fw-bold text-success">&#8377;{{ payment.amount_paid }}</span>
+                    </td>
+                    <td>
+                        {% if payment.method == 'cash' %}
+                            <span class="badge badge-method badge-cash">Cash</span>
+                        {% elif payment.method == 'card' %}
+                            <span class="badge badge-method badge-card">Card</span>
+                        {% elif payment.method == 'upi' %}
+                            <span class="badge badge-method badge-upi">UPI</span>
+                        {% elif payment.method == 'netbanking' %}
+                            <span class="badge badge-method badge-netbanking">Net Banking</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ payment.method }}</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ payment.payment_date }}</td>
+                    <td>
+                        <a href="{% url 'edit_payment' payment.id %}" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted">No payments found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

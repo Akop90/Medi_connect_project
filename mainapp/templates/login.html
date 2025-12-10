@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; background: #f2f2f2;">
+
+    <div style="width: 100%; max-width: 400px; background: white; padding: 30px 25px; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.1); margin-top: 90px;">
+        
+        <form method="post" style="display: flex; flex-direction: column;">
+            {% csrf_token %}
+
+           
+
+            <h2 style="text-align: center; margin-bottom: 20px; color: #333;">Please Sign In</h2>
+
+            <!-- User Type -->
+            <label for="utype" style="margin-bottom: 5px; color: #555;">User Type</label>
+            <select name="usertype" id="utype" required
+                style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 15px;">
+                <option value="" selected>Select Usertype</option>
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+                <option value="doctor">Doctor</option>
+                <option value="accountant">Accountant</option>
+            </select>
+
+            <!-- User ID -->
+            <label for="floatingInput" style="margin-bottom: 5px; color: #555;">User ID</label>
+            <input type="text" name="userid" id="floatingInput" required
+                style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 15px;">
+
+            <!-- Password -->
+            <label for="floatingPassword" style="margin-bottom: 5px; color: #555;">Password</label>
+            <input type="password" name="password" id="floatingPassword" required
+                style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 20px;">
+
+            <!-- Submit -->
+            <button type="submit" 
+                style="padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;">
+                Login
+            </button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

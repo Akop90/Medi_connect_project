@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accountant Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap for layout and icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sidebar {
+            background: #1976d2;
+            color: #fff;
+            min-height: 100vh;
+            width: 220px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 40px;
+            box-shadow: 2px 0 8px rgba(33,150,243,0.08);
+            z-index: 100;
+        }
+        .sidebar .logo {
+            font-size: 1.7rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 18px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.08rem;
+            padding: 12px 32px;
+            display: block;
+            border-radius: 0 20px 20px 0;
+            transition: background 0.2s, color 0.2s;
+        }
+        .sidebar a:hover, .sidebar .active {
+            background: #bbdefb;
+            color: #1976d2;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 40px 24px 24px 24px;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .dashboard-header h2 {
+            font-weight: 700;
+            color: #1976d2;
+        }
+        .dashboard-cards {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .dashboard-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+            padding: 32px 24px;
+            flex: 1 1 260px;
+            min-width: 260px;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .dashboard-card:hover {
+            box-shadow: 0 4px 24px rgba(33,150,243,0.18);
+        }
+        .dashboard-card h4 {
+            color: #1976d2;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+        .dashboard-card .icon {
+            font-size: 2.5rem;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        .dashboard-card a.btn {
+            margin-top: 10px;
+        }
+        .recent-activity {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+            padding: 24px 24px;
+        }
+        .recent-activity h5 {
+            color: #1976d2;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+        @media (max-width: 900px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; }
+            .dashboard-cards { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-calculator"></i> Accountant
+        </div>
+        <ul>
+            <li><a href="{% url 'accountant_dashboard' %}" {% if request.resolver_match.url_name == 'accountant_dashboard' %}class="active"{% endif %}><i class="fas fa-home me-2"></i>Dashboard</a></li>
+            <li><a href="{% url 'all_bills' %}" {% if request.resolver_match.url_name == 'all_bills' %}class="active"{% endif %}><i class="fas fa-file-invoice-dollar me-2"></i>All Bills</a></li>
+            <li><a href="{% url 'payments' %}"><i class="fas fa-credit-card me-2"></i>Payments</a></li>
+            <li><a href="{% url 'reports' %}"><i class="fas fa-file-alt me-2"></i>Reports</a></li>
+            <li><a href="{% url 'billing_history' %}"><i class="fas fa-history me-2"></i>Billing History</a></li>
+            <li><a href="#"><i class="fas fa-user-cog me-2"></i>Profile</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="dashboard-header">
+            <h2>Accountant Dashboard</h2>
+            <div class="text-muted">Last updated: {% now "jS F Y" %}</div>
+        </div>
+        {% block content %}
+        <div class="dashboard-cards">
+            <!-- Dashboard content here -->
+        </div>
+        <a href="{% url 'create_bill' %}" 
+           class="btn btn-lg btn-gradient mb-3 shadow d-inline-flex align-items-center"
+           style="background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); border: none; color: #fff; font-weight: 600; letter-spacing: 1px; border-radius: 2rem; transition: box-shadow 0.2s;">
+            <i class="fas fa-plus-circle me-2"></i> Create New Bill
+        </a>
+        {% endblock %}
+    </div>
+</body>
+</html>

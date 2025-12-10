@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div style="max-width: 750px; margin: 60px auto; background: #f8f9fa; padding: 30px; border-radius: 8px; margin-top: 130px;">
+    <h2 style="text-align: center;">Make an Appointment</h2>
+
+   
+
+    
+    <form method="get">
+        <label><strong>Choose Doctor Type:</strong></label>
+        <select name="doctor_speciality" onchange="this.form.submit()" class="form-control mb-4">
+            <option value="">Select Doctor Type</option>
+            {% for spec in specialities %}
+                <option value="{{ spec }}" {% if selected_speciality == spec %}selected{% endif %}>{{ spec }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <!-- Real Appointment Form -->
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Full Name:</label>
+        <input type="text" name="name" class="form-control mb-3" required>
+
+        <label>Email Address:</label>
+        <input type="email" name="email" class="form-control mb-3" required>
+
+        <label>Contact Number:</label>
+        <input type="text" name="contact" class="form-control mb-3" required>
+
+        <label>Symptoms / Disease:</label>
+        <textarea name="symptoms" class="form-control mb-3" required></textarea>
+
+        <label>Appointment Date:</label>
+        <input type="date" name="appointment_date" class="form-control mb-3" required>
+
+        <label>Appointment Time:</label>
+        <input type="time" name="appointment_time" class="form-control mb-3" required>
+
+        <input type="hidden" name="doctor_speciality" value="{{ selected_speciality }}">
+
+        <label>Select Doctor:</label>
+        <select name="doctor" class="form-control mb-4" required>
+            <option value="">Select Doctor</option>
+            {% for doc in doctors %}
+                <option value="{{ doc.doctor_id }}">{{ doc.doctor_name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn btn-success w-100">Book Appointment</button>
+    </form>
+</div>
+
+{% endblock %}

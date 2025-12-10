@@ -1,0 +1,46 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<div class="row" style="margin: 0;">
+    <div class="col-12" style="padding: 15px;">
+        <h2 class="text-center mb-4" style="font-weight: 600; color: #198754;">All Approved Staff</h2>
+
+        {% if staff %}
+            <div style="overflow-x: auto;">
+                <table class="table table-bordered table-hover table-striped text-center align-middle" style="min-width: 600px;">
+                    <thead style="background-color: #198754; color: white;">
+                        <tr>
+                            <th style="min-width: 120px;">Name</th>
+                            <th style="min-width: 200px;">Email</th>
+                            <th style="min-width: 120px;">Phone</th>
+                            <th style="min-width: 200px;">Address</th>
+                            <th style="min-width: 160px;">Registered At</th>
+                            <th style="min-width: 160px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in staff %}
+                            <tr>
+                                <td>{{ s.staff_name }}</td>
+                                <td>{{ s.staff_email }}</td>
+                                <td>{{ s.staff_phone }}</td>
+                                <td>{{ s.staff_address }}</td>
+                                <td>{{ s.created_at|date:"d M Y, H:i" }}</td>
+                                <td>
+                                    <a href="{% url 'adminapp:deletestaff' s.id %}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info text-center" style="font-weight: 500; font-size: 1.1rem;">
+                No approved staff members found.
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

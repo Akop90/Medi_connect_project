@@ -1,0 +1,63 @@
+{% extends 'staffbase.html' %}
+{% load static %}
+{% block staff %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Dashboard Overview</h2>
+        <div class="text-muted">Last updated: {% now "jS F Y" %}</div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+             <div class="card shadow-sm mb-4">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Notifications </h3>
+                    <h1 class="display-4"></h1>
+                    <a href="{% url 'staffapp:viewnoti' %}" class="btn btn-primary">
+                        View All Notifications
+                    </a>
+                </div>
+            </div> 
+        </div>
+
+
+        <div class="col-md-4">
+            {% comment %} <div class="card shadow-sm mb-4">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Total Staff</h3>
+                    
+                    <a href="#" class="btn btn-primary">
+                        View All Staff
+                    </a>
+                </div>
+            </div> {% endcomment %}
+        </div>
+        <div class="col-md-4">
+           {% comment %} <div class="card shadow-sm mb-4">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Total Complaints</h3>
+                    
+                    <a href="#" class="btn btn-primary">
+                        View All Complaints
+                    </a>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+
+    <!-- Recent Activity Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0"><i class="fas fa-history me-2"></i>Recent Activity</h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-center text-muted py-4">No recent activity to display</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

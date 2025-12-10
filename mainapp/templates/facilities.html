@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Hero Section -->
+<section class="facilities-hero-section">
+    <div class="facilities-hero-overlay"></div>
+    <div class="facilities-hero-content">
+        <h1 class="facilities-hero-title">Our <span>Facilities</span></h1>
+        <p class="facilities-hero-subtitle">State-of-the-art medical infrastructure for comprehensive care</p>
+    </div>
+</section>
+
+<!-- Facilities Intro Section -->
+<section class="facilities-intro-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="facilities-text-content">
+                    <h2>Advanced <span>Medical Infrastructure</span></h2>
+                    <p>Highway Hospital is equipped with modern facilities and cutting-edge technology to provide the highest standard of medical care. Our infrastructure is designed to ensure patient comfort while delivering excellent clinical outcomes.</p>
+                    
+                    <div class="facilities-features">
+                        <div class="facilities-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Modern diagnostic equipment</span>
+                        </div>
+                        <div class="facilities-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Advanced surgical suites</span>
+                        </div>
+                        <div class="facilities-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 emergency services</span>
+                        </div>
+                        <div class="facilities-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Comfortable patient rooms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="facilities-image-wrapper">
+                    <img src="{% static 'media/fac.webp' %}" alt="Hospital Facilities" class="facilities-main-image img-fluid">
+                    <div class="facilities-image-highlight"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Facilities Grid Section -->
+<section class="facilities-grid-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our <span>Key Facilities</span></h2>
+            <p>Comprehensive healthcare services under one roof</p>
+        </div>
+        
+        <div class="row">
+            <!-- Facility 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/emerg.webp' %}" alt="24/7 Emergency" class="img-fluid">
+                    </div>
+                    <div class="facility-content">
+                        <h4>24/7 Emergency Care</h4>
+                        <p>Fully equipped emergency department staffed by experienced emergency physicians and trauma specialists, ready to handle any medical crisis.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-clock"></i> Round the clock</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/icu.jpg' %}" alt="ICU" class="img-fluid">
+                    </div>
+                    <div class="facility-content">
+                        <h4>Intensive Care Unit</h4>
+                        <p>Advanced ICU with multi-parameter monitors, ventilators and dedicated critical care specialists for critically ill patients.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-bed"></i> 20 Beds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/operation.jpg' %}" alt="Operation Theater" class="img-fluid">
+                    </div>
+                    <div class="facility-content">
+                        <h4>Modern Operation Theaters</h4>
+                        <p>State-of-the-art modular OTs with laminar airflow, advanced anesthesia workstations and surgical equipment for all specialties.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-procedures"></i> 6 Theaters</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/lab.webp' %}" alt="Laboratory">
+                    </div>
+                    <div class="facility-content">
+                        <h4>Advanced Laboratory</h4>
+                        <p>Fully automated pathology lab with facilities for biochemistry, microbiology, hematology and histopathology testing.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-flask"></i> NABL Accredited</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/radio.jpg' %}" alt="Radiology">
+                    </div>
+                    <div class="facility-content">
+                        <h4>Radiology & Imaging</h4>
+                        <p>Comprehensive imaging services including 64-slice CT scan, 1.5 Tesla MRI, digital X-ray, ultrasound and mammography.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-x-ray"></i> Advanced Imaging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/pharm.jpg' %}" alt="Pharmacy">
+                    </div>
+                    <div class="facility-content">
+                        <h4>24-Hour Pharmacy</h4>
+                        <p>Well-stocked pharmacy providing all essential medicines, surgical supplies and implants with qualified pharmacists.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-prescription-bottle-alt"></i> Always Open</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 7 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/phys.jpg' %}" alt="Physiotherapy">
+                    </div>
+                    <div class="facility-content">
+                        <h4>Physiotherapy</h4>
+                        <p>Comprehensive rehabilitation services with modern equipment for physiotherapy, occupational therapy and pain management.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-spa"></i> Rehabilitation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 8 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/dys.jpg' %}" alt="Dialysis">
+                    </div>
+                    <div class="facility-content">
+                        <h4>Dialysis Unit</h4>
+                        <p>Advanced hemodialysis services with high-flux dialysis machines and expert nephrology care for chronic kidney disease patients.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-heartbeat"></i> 10 Stations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facility 9 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="{% static 'media/rooms.webp' %}" alt="Patient Rooms">
+                    </div>
+                    <div class="facility-content">
+                        <h4>Patient Rooms</h4>
+                        <p>Comfortable private and semi-private rooms with modern amenities, nurse call system and 24/7 nursing care.</p>
+                        <div class="facility-meta">
+                            <span><i class="fas fa-hotel"></i> 100+ Beds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Facilities Section -->
+<section class="additional-facilities">
+    <div class="container">
+        <div class="section-header">
+            <h2>Additional <span>Amenities</span></h2>
+            <p>Supporting services for patient comfort and convenience</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>Dietary Services</h4>
+                    <p>Nutritious meals prepared under dietitian supervision according to medical needs and preferences.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h4>Ample Parking</h4>
+                    <p>Spacious parking area for patients and visitors with dedicated emergency vehicle access.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h4>Free WiFi</h4>
+                    <p>High-speed internet access throughout the hospital for patients and visitors.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h4>Accessibility</h4>
+                    <p>Wheelchair accessible facilities with ramps, elevators and disabled-friendly amenities.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h4>Prayer Room</h4>
+                    <p>Peaceful multi-faith prayer room for spiritual needs of patients and families.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h4>Visitor Lounge</h4>
+                    <p>Comfortable waiting areas with TV, charging stations and cafeteria services.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="facilities-cta-section">
+    <div class="container">
+        <div class="facilities-cta-content">
+            <h2>Experience Our World-Class Facilities</h2>
+            <p>Schedule a visit or consultation with our healthcare specialists today</p>
+            <a href="#" class="btn btn-primary">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

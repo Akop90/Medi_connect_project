@@ -1,0 +1,44 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="text-center mb-4">All Complaints</h2>
+
+        {% if complaints %}
+            <table class="table table-bordered table-hover table-striped text-center align-middle">
+                <thead style="background-color: #dc3545; color: white;">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Complaint</th>
+                        <th>Registered Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in complaints %}
+                        <tr>
+                            <td>{{ c.name }}</td>
+                            <td>{{ c.email }}</td>
+                            <td>{{ c.phone }}</td>
+                            <td>{{ c.complaint }}</td>
+                            <td>{{ c.registered_date|date:"d M Y" }}</td>
+                            <td>
+                                <a href="{% url 'adminapp:deletecomplaint' c.id %}" class="btn btn-success">Solved</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-info text-center">
+                No complaints yet.
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

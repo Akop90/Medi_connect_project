@@ -1,0 +1,93 @@
+{% extends "accountantapp/accountant_dashboard.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<style>
+    .bill-builder-card {
+        border-radius: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        background: rgba(255,255,255,0.95);
+        transition: box-shadow 0.3s;
+    }
+    .bill-builder-card:hover {
+        box-shadow: 0 12px 40px 0 rgba(25, 118, 210, 0.25);
+    }
+    .bill-builder-header {
+        background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+        border-radius: 1.5rem 1.5rem 0 0;
+        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.12);
+    }
+    .bill-builder-header h3 {
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .form-label {
+        color: #1976d2;
+        font-weight: 600;
+    }
+    .btn-success {
+        background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+        border: none;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: background 0.2s;
+    }
+    .btn-success:hover {
+        background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+    }
+    .btn-outline-secondary {
+        border-radius: 2rem;
+    }
+    .animated-icon {
+        animation: bounceIn 0.8s;
+    }
+    @keyframes bounceIn {
+        0% { transform: scale(0.7); opacity: 0; }
+        60% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+</style>
+<div class="container mt-5" style="max-width: 520px;">
+    <div class="card bill-builder-card border-0">
+        <div class="card-header bill-builder-header text-white text-center">
+            <h3 class="mb-0">
+                <i class="fas fa-file-invoice-dollar me-2 animated-icon"></i>
+                Create New Bill
+            </h3>
+        </div>
+        <div class="card-body p-4">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>{{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form method="post" autocomplete="off">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label">{{ field.label_tag }}</label>
+                        {{ field|add_class:"form-control form-control-lg" }}
+                        {% if field.help_text %}
+                            <div class="form-text">{{ field.help_text }}</div>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="text-danger small">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <button type="submit" name="generate_bill" class="btn btn-success px-4 py-2 shadow-sm">
+                        <i class="fas fa-plus-circle me-1"></i> Generate & Email Bill
+                    </button>
+                    <a href="{% url 'all_bills' %}" class="btn btn-outline-secondary px-4 py-2">
+                        <i class="fas fa-arrow-left me-1"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

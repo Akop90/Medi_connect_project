@@ -1,0 +1,36 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">All Notifications</h2>
+    
+    
+    
+    {% if notifications %}
+    <table class="table table-bordered text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th>Message</th>
+                <th>Send To</th>
+                
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for note in notifications %}
+            <tr>
+                <td>{{ note.message }}</td>
+                {% comment %} <td>{{ note.send_to|capfirst }}</td> {% endcomment %}
+                <td>{{ note.created_at|date:"Y-m-d H:i" }}</td>
+                <td>
+                    <a href="{% url 'adminapp:deletenotification' note.id %}"class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="text-center">No notifications found.</p>
+    {% endif %}
+</div>
+{% endblock %}

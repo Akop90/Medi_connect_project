@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div style="max-width: 600px; margin: 60px auto; background: #f8f9fa; padding: 30px; margin-top:130px;  border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); ">
+
+    <h2 style="text-align: center; margin-bottom: 20px;">Contact Us / Complaints</h2>
+
+   
+
+    <form method="POST">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label>Name:</label>
+            <input type="text" name="name" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label>Email:</label>
+            <input type="email" name="email" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label>Phone:</label>
+            <input type="text" name="phone" required maxlength="10" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label>Your Complaint:</label>
+            <textarea name="complaint" rows="4" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" style="padding: 10px 30px; background-color: #0d6efd; color: white; border: none; border-radius: 5px;">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

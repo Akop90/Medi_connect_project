@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Hero Section -->
+<section class="partners-hero-section">
+    <div class="partners-hero-overlay"></div>
+    <div class="partners-hero-content">
+        <h1 class="partners-hero-title">Our <span>Cashless Partners</span></h1>
+        <p class="partners-hero-subtitle">Seamless insurance claims with our network of trusted partners</p>
+    </div>
+</section>
+
+<!-- Partners Intro Section -->
+<section class="partners-intro-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="partners-text-content">
+                    <h2>Cashless <span>Facility</span></h2>
+                    <p>At Medi-connect Healthcare System, we have tied up with most major insurance providers to offer cashless hospitalization facilities to our patients. This means you can focus on your treatment while we handle the paperwork with your insurance provider.</p>
+                    
+                    <div class="partners-features">
+                        <div class="partners-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No upfront payment required</span>
+                        </div>
+                        <div class="partners-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Direct billing with insurance companies</span>
+                        </div>
+                        <div class="partners-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hassle-free claim settlement</span>
+                        </div>
+                        <div class="partners-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated insurance desk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="partners-image-wrapper">
+                    <img src="{% static 'media/ins.jpg' %}" alt="Insurance Desk" class="partners-main-image img-fluid">
+                    <div class="partners-image-highlight"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners Grid Section -->
+<section class="partners-grid-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our <span>Insurance Partners</span></h2>
+            <p>We are empaneled with these leading insurance providers</p>
+        </div>
+        
+        <div class="row">
+            <!-- Insurance Company 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/star.png' %}" alt="Star Health Insurance">
+                    </div>
+                    <h4>Star Health Insurance</h4>
+                </div>
+            </div>
+            
+            <!-- Insurance Company 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/icici.jpg' %}" alt="ICICI Lombard">
+                    </div>
+                    <h4>ICICI Lombard</h4>
+                </div>
+            </div>
+            
+            <!-- Insurance Company 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/bajaj.jpeg' %}" alt="Bajaj Allianz">
+                    </div>
+                    <h4>Bajaj Allianz</h4>
+                </div>
+            </div>
+            
+            <!-- Insurance Company 4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/hdfc.jpg' %}" alt="HDFC ERGO">
+                    </div>
+                    <h4>HDFC ERGO</h4>
+                </div>
+            </div>
+            
+            <!-- Insurance Company 5 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/ni.png' %}" alt="New India Assurance">
+                    </div>
+                    <h4>New India Assurance</h4>
+                </div>
+            </div>
+            
+            <!-- Insurance Company 6 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/religare.jpeg' %}" alt="Religare Health Insurance">
+                    </div>
+                    <h4>Religare Health Insurance</h4>
+                </div>
+            </div>
+            
+            <!-- Insurance Company 7 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/iffco.png' %}" alt="IFFCO Tokio">
+                    </div>
+                    <h4>IFFCO Tokio</h4>
+                </div>
+            </div>
+            
+            <!-- Insurance Company 8 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="{% static 'media/uni.jpeg' %}" alt="Universal Sompo">
+                    </div>
+                    <h4>Universal Sompo</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Cashless <span>Claim Process</span></h2>
+            <p>Simple steps to avail cashless treatment facility</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Inform Insurance Provider</h4>
+                    <p>Notify your insurance company about planned hospitalization or emergency treatment</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Submit Documents</h4>
+                    <p>Provide required documents including insurance card, ID proof, and doctor's recommendation</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Pre-Authorization</h4>
+                    <p>Our team will obtain pre-authorization from your insurance company</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Admission & Treatment</h4>
+                    <p>Proceed with treatment without upfront payment</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Claim Settlement</h4>
+                    <p>We directly settle the bills with your insurance provider</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="partners-cta-section">
+    <div class="container">
+        <div class="partners-cta-content">
+            <h2>Need Help With Insurance Claims?</h2>
+            <p>Our insurance desk is available 24/7 to assist you</p>
+            <a href="#" class="btn btn-primary">Contact Insurance Desk</a>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

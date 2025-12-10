@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Hero Section -->
+<section class="gallery-hero-section">
+    <div class="gallery-hero-overlay"></div>
+    <div class="gallery-hero-content">
+        <h1 class="gallery-hero-title">Hospital <span>Gallery</span></h1>
+        <p class="gallery-hero-subtitle">Explore our world-class facilities and caring environment</p>
+    </div>
+</section>
+
+
+
+<!-- Gallery Grid -->
+<section class="gallery-grid-section">
+    <div class="container">
+        <div class="row">
+            <!-- Image 1 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="infrastructure">
+                <div class="gallery-card">
+                    <img src="{% static 'media/hb.jpeg' %}" alt="Hospital Building" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Main Hospital Building</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="facilities">
+                <div class="gallery-card">
+                    <img src="{% static 'media/eme.jpg' %}" alt="Emergency Department" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Emergency Department</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="facilities">
+                <div class="gallery-card">
+                    <img src="{% static 'media/ope.jpg' %}" alt="Operation Theater" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Modern Operation Theater</div>
+                       
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="facilities">
+                <div class="gallery-card">
+                    <img src="{% static 'media/icu.jpg' %}" alt="ICU" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Intensive Care Unit</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 5 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="team">
+                <div class="gallery-card">
+                    <img src="{% static 'media/team.jpg' %}" alt="Doctors Team" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Our Expert Doctors</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 6 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="events">
+                <div class="gallery-card">
+                    <img src="{% static 'media/camp.jpg' %}" alt="Health Camp" class="gallery-image img-fluid">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Community Health Camp</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 7 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="infrastructure">
+                <div class="gallery-card">
+                    <img src="{% static 'media/rece.jpg' %}" alt="Reception" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Hospital Reception</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 8 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="facilities">
+                <div class="gallery-card">
+                    <img src="{% static 'media/lab.jpg' %}" alt="Laboratory" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Advanced Laboratory</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image 9 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="events">
+                <div class="gallery-card">
+                    <img src="{% static 'media/award.jpeg' %}" alt="Award Ceremony" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Award Ceremony</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="gallery-cta-section">
+    <div class="container">
+        <div class="gallery-cta-content">
+            <h2>Visit Our Hospital</h2>
+            <p>Schedule a tour to experience our facilities firsthand</p>
+            <a href="https://www.google.com/maps?ll=26.905089,80.938669&z=11&t=m&hl=en&gl=IN&mapclient=embed&cid=14943751884253949959" class="btn btn-primary" target='_blank'>See Location</a>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
